@@ -11,19 +11,39 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
+   <button id="btnAdd" onclick="addToList()">Enter</button>
 
    <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
-      <li>Jello</li>
-      <li>Spinach</li>
-      <li>Rice</li>
-      <li>Birthday Cake</li>
-      <li>Candles</li>
+      <li>Notebook <button onclick="removeFromList(this.parentNode)">Delete</button></li>
+      <li>Jello <button onclick="removeFromList(this.parentNode)">Delete</button></li>
+      <li>Spinach <button onclick="removeFromList(this.parentNode)">Delete</button></li>
+      <li>Rice <button onclick="removeFromList(this.parentNode)">Delete</button></li>
+      <li>Birthday Cake <button onclick="removeFromList(this.parentNode)">Delete</button></li>
+      <li>Candles <button onclick="removeFromList(this.parentNode)">Delete</button></li>
    </ul>
 
    <script>
 
       // add code here
+      function addToList(){
+         const ulElement = document.getElementsByTagName("ul")[0];
+         const itemValue = document.getElementById("inputText").value;
+         const liElement = document.createElement("li");
+         liElement.innerText = itemValue;
+         ulElement.appendChild(liElement);
+
+         const btnElement = document.createElement("button");
+         btnElement.style.marginLeft = "5px";
+         btnElement.innerText = "Delete";
+         btnElement.addEventListener("click", function() {
+            removeFromList(this.parentNode);
+         });
+         liElement.appendChild(btnElement);
+      }
+
+      function removeFromList(obj){
+         obj.remove(); 
+      }
 
    </script>
 

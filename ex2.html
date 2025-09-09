@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>
+    <head>
+        <style>
 
-        #div1 {
-            width: 200px;
-            height: 200px;
-            background-color: goldenrod;
-        }
+            #div1 {
+                width: 200px;
+                height: 200px;
+                background-color: goldenrod;
+            }
 
-        /* add CSS code here */
+            /* add CSS code here */
+            .square {
+                border-radius: 0px;
+            }
+            
+            .circle{
+                border-radius: 50%;
+            }
+            
+        </style>
+
         
-    </style>
-
-    
-</head>
-<body>
-    
-    <h2>Changing HTML Attribute Value</h2>
-
-    <div id="div1"></div>
-
-    <button onclick="changeShape()">Make a change!</button>
-
-    <script>
-        var square=true;
-       // add code here
+    </head>
+    <body>
         
-    </script>
+        <h2>Changing HTML Attribute Value</h2>
 
-</body>
+        <div id="div1"></div>
+
+        <button onclick="changeShape()">Make a change!</button>
+
+        <script>
+            var square = true;
+            // add code here
+            function changeShape(){
+                let divElement = document.getElementById("div1");
+                if (square) {
+                    divElement.style.borderRadius = "50%";
+                } else {
+                    divElement.style.borderRadius = "0px";
+                }
+
+                //Alternative Method
+                // if (square) {
+                //     divElement.className = "circle";
+                // } else {
+                //     divElement.className = "square";
+                // }
+                square =! square;
+            }
+        </script>
+
+    </body>
 </html>
